@@ -1,0 +1,7 @@
+{
+  "name": "Orbital Studio",
+  "description": "AI-Native Creative Studio for Narrative & Visual IP Development. Write, design, illustrate, and publish in one workspace.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
