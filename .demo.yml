@@ -1,0 +1,14 @@
+status: live
+title: Orbital Studio
+pitch: AI-Native Creative Studio for Narrative & Visual IP Development.
+category: media
+platform: cloudrun
+featured: false
+live_url: https://orbital-studio-414737114778.us-west1.run.app
+cover_prompt: A sleek, dark-mode digital studio interface with floating panels containing character concept art and story outlines, illuminated by cinematic orange lighting.
+tags:
+  - ai
+  - storytelling
+  - gemini
+  - creative-tools
+  - graphic-novel

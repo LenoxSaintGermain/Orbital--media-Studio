@@ -184,4 +184,13 @@ export const GeminiService = {
       try {
           const ai = getAiClient();
           const response = await ai.models.generateContent({
-              model: MAPS_MODEL
+              model: MAPS_MODEL,
+              contents: query,
+              config: { tools: [{ googleMaps: {} }] }
+          });
+          return response.text;
+      } catch (e) {
+          return "Maps error";
+      }
+  }
+};
