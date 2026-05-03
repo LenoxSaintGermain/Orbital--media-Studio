@@ -194,3 +194,24 @@ Linear:
 - `THI-89`: Enforce Conductor webhook verification before SWAT automation
 - `THI-90`: Implement Conductor artifact ingest for Librarian SWAT records
 - `THI-91`: Audit and remove browser-bundled Gemini keys across Orbital SWAT surfaces
+
+## 2026-05-03: SWAT-002 Agent Wiki Two-Wave Execution
+
+Summary:
+
+- Approved consultant SWAT-002 input as the `THI-72` Agent Wiki build protocol.
+- Converted it into a two-wave execution plan.
+- Added `docs/ops/AGENT_WIKI_SWAT_002_WAVE_PLAN.md`.
+- Completed Wave A filesystem MVP in `career-agent-one/docs/agent-wiki/`.
+- Ran Librarian ingest across 26 Agent Wiki markdown files with 0 failures.
+- Created Linear issues:
+  - `THI-92`: SWAT-002 Wave A Agent Wiki filesystem scaffold
+  - `THI-93`: SWAT-002 Wave A Librarian proposal and commit workflow
+  - `THI-94`: SWAT-002 Wave A Swarm event schema and trace contract
+  - `THI-95`: SWAT-002 Wave B runtime Agent Wiki implementation blockers
+
+Execution rule:
+
+- Wave A ships filesystem artifacts only: schemas, contracts, seed pages, cards, context pack, and Sentinel report.
+- Wave B remains blocked until Conductor, webhook, artifact ingest, browser-bundled Gemini key, and Orbital Context broker/redaction/trace/v2 gates are resolved.
+- `DEPLOY_ON_COMPLETION=false` remains in force.

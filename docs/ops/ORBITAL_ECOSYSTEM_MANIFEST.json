@@ -140,11 +140,18 @@
       "linearIssue": "THI-72",
       "source": "docs/ops/THIRD_SIGNAL_AGENT_WIKI_SPEC.md",
       "role": "canonical agent-readable compiled knowledge layer for Alfred, Swarm, Donna, Librarian, Ghost, Armory, Field Guide, Arsenal, Research OS and Orbital",
-      "currentStatus": "spec_created",
+      "currentStatus": "swat_002_wave_a_filesystem_mvp_completed",
       "swarmIntegration": "not_implemented",
       "updateOwner": "Librarian",
       "traceOwner": "Swarm",
-      "requiredAction": "bootstrap schema, index, log, retrieval contract and Librarian/Ghost workflows"
+      "requiredAction": "defer runtime work until THI-88 through THI-91 and THI-80 through THI-84 blockers clear",
+      "wavePlan": "docs/ops/AGENT_WIKI_SWAT_002_WAVE_PLAN.md",
+      "waveLinearIssues": [
+        "THI-92",
+        "THI-93",
+        "THI-94",
+        "THI-95"
+      ]
     },
     {
       "name": "Third Signal SWAT",
