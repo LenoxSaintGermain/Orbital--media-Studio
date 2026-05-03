@@ -12,6 +12,8 @@ Current audit found that some names are real sources and some are still unresolv
 
 | Surface | Current evidence | Intended role | Swarm status |
 | --- | --- | --- | --- |
+| Third Signal Agent Wiki | Spec at `docs/ops/THIRD_SIGNAL_AGENT_WIKI_SPEC.md` | Canonical compiled knowledge layer for agents | Not implemented |
+| Orbital Context | Existing repo `LenoxSaintGermain/orbital-context`; pre-prod Cloud Run service exists in `third-signal` | Context intake layer that turns browser/app state into traceable capture cards | Not wired to Swarm/Librarian/Agent Wiki/Armory yet |
 | Arsenal | Public repo `third-signal-skill-packs`; README contains `The ARSENAL` catalog | Canonical catalog of reusable Third Signal skill packs, protocols, and operating primitives | Not wired in current Orbital checkout |
 | Armory | User-confirmed Orbital module; not exposed by name in this checkout or fetched remote branch | Operational equipment/context registry updated by Librarian; Ghost operates there | Module path/runtime wiring not confirmed |
 | Orbital Manifest | `docs/ops/ORBITAL_ECOSYSTEM_MANIFEST.json` | Machine-readable operating manifest for environments, services, doctrine, backlog, knowledge surfaces, and voice layer | Local doc artifact; runtime consumption not confirmed |
@@ -30,6 +32,53 @@ Every knowledge surface needs:
 - Librarian ingest path.
 - Alfred citation behavior.
 - Health or freshness check.
+
+## Third Signal Agent Wiki
+
+Current source:
+
+- `docs/ops/THIRD_SIGNAL_AGENT_WIKI_SPEC.md`
+- Linear: `THI-72`
+
+Role:
+
+- Compiled, cited, agent-readable operating memory.
+- Sits between raw sources and agent execution.
+- Powers Alfred walkthrough planning, Donna public-safe answers, Swarm coordination context, Librarian updates, Ghost lint, Field Guide pages, Armory cards, and Research OS claim checks.
+
+Required integration:
+
+- Bootstrap `docs/agent-wiki/` with schema, index, log, pages, cards, context packs, and lint reports.
+- Add retrieval contract: `agent_wiki.retrieve_context`.
+- Add write proposal contract: `librarian.propose_wiki_update`.
+- Add Swarm events for retrieval, update proposals, committed updates, stale claims, and contradictions.
+- Add visibility tiers: `public`, `internal`, `operator_only`.
+- Add evidence labels: `verified`, `user_confirmed`, `observed`, `inferred`, `contradicted`.
+
+## Orbital Context
+
+Current source:
+
+- Repo: `https://github.com/LenoxSaintGermain/orbital-context`
+- Local checkout: `/Users/lenoxparis/conductor/repos/orbital-context`
+- Pre-prod Cloud Run URL: `https://orbital-context-pplaphmpxq-uw.a.run.app`
+- Spec: `docs/ops/ORBITAL_CONTEXT_INTEGRATION_AND_PLUGIN_SPEC.md`
+- Linear: `THI-58`, `THI-68`
+
+Role:
+
+- Capture live browser/app context and convert it into cited, redacted, traceable `CaptureCard` records.
+- Feed Alfred, Swarm, Librarian, Agent Wiki, Field Guide, Armory/Ghost, Research OS, `#admin`, and Donna public-safe summaries.
+- Support voice-led walkthrough proof capture for the `Introducing Orbital` pilot.
+
+Required integration:
+
+- Move Gemini analysis and privileged persistence behind a server-side context broker.
+- Lock Firestore and Storage access.
+- Add Swarm events for capture, analysis, save, handoff, redaction, and approval.
+- Let Librarian approve durable Agent Wiki, Field Guide, and artifact writes.
+- Let Ghost flag risky captures, stale context, missing trace IDs, and unsafe permissions in Armory.
+- Expose capture queue, trace status, redaction report, and target agents in `#admin`.
 
 ## Arsenal
 

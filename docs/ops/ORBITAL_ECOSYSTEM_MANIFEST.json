@@ -61,8 +61,11 @@
     ]
   },
   "voiceOperatingLayer": {
-    "targetModel": "gemini-3.1-flash-live-preview",
-    "modelPolicy": "preview_model_version_gated_with_stable_fallback",
+    "targetModelAlias": "GEMINI_LIVE_MODEL",
+    "currentOperatingModel": "user_confirmed_gemini_3_1_live_preview",
+    "publicDocsFallback": "gemini-2.5-flash-native-audio-preview-12-2025",
+    "modelPolicy": "preserve_current_gemini_3_1_live_preview_path_use_runtime_alias_capability_probe_and_update_alias_when_ga",
+    "gaMigrationPolicy": "update_GEMINI_LIVE_MODEL_to_GA_model_name_without_code_change_when_preview_exits",
     "credentialPolicy": "server_side_session_broker_only",
     "a2uiCardFamilies": [
       "walkthrough.scene",
@@ -79,7 +82,81 @@
     "artifactOwner": "Librarian",
     "reviewSurface": "#admin"
   },
+  "orbitalContext": {
+    "linearIssues": [
+      "THI-58",
+      "THI-68",
+      "THI-79",
+      "THI-80",
+      "THI-81",
+      "THI-82",
+      "THI-83",
+      "THI-84",
+      "THI-85",
+      "THI-86"
+    ],
+    "sourceRepo": "https://github.com/LenoxSaintGermain/orbital-context",
+    "localCheckout": "/Users/lenoxparis/conductor/repos/orbital-context",
+    "baselineCommit": "07f9f94",
+    "aiStudioSource": "https://ai.studio/apps/drive/16c0y0ZOAXsGz_ejUE2UhtLIVcJhT-OCY",
+    "currentPreprodService": {
+      "project": "third-signal",
+      "service": "orbital-context",
+      "region": "us-west1",
+      "revision": "orbital-context-00001-4bn",
+      "url": "https://orbital-context-pplaphmpxq-uw.a.run.app",
+      "image": "us-docker.pkg.dev/cloudrun/container/aistudio/applet-proxy"
+    },
+    "targetProductionProject": "third-signal-v2",
+    "targetArchitecture": [
+      "packages/context-core",
+      "apps/orbital-context-run",
+      "apps/orbital-context-api",
+      "apps/orbital-context-extension"
+    ],
+    "promotionBlockers": [
+      "client_side_gemini_key_injection",
+      "direct_browser_model_calls",
+      "open_firestore_rules",
+      "open_storage_rules",
+      "no_swarm_trace_ids",
+      "no_librarian_agent_wiki_armory_research_admin_wiring",
+      "no_manifest_v3_extension_package"
+    ],
+    "requiredContracts": [
+      "CaptureCard",
+      "redaction_report",
+      "Swarm context events",
+      "Librarian approved ingest",
+      "Agent Wiki compiled writes",
+      "Armory/Ghost observations",
+      "Research OS handoffs",
+      "#admin capture queue"
+    ]
+  },
   "knowledgeSurfaces": [
+    {
+      "name": "Third Signal Agent Wiki",
+      "linearIssue": "THI-72",
+      "source": "docs/ops/THIRD_SIGNAL_AGENT_WIKI_SPEC.md",
+      "role": "canonical agent-readable compiled knowledge layer for Alfred, Swarm, Donna, Librarian, Ghost, Armory, Field Guide, Arsenal, Research OS and Orbital",
+      "currentStatus": "spec_created",
+      "swarmIntegration": "not_implemented",
+      "updateOwner": "Librarian",
+      "traceOwner": "Swarm",
+      "requiredAction": "bootstrap schema, index, log, retrieval contract and Librarian/Ghost workflows"
+    },
+    {
+      "name": "Orbital Context",
+      "linearIssue": "THI-58",
+      "source": "https://github.com/LenoxSaintGermain/orbital-context",
+      "role": "browser and app context intake layer that creates redacted traceable CaptureCards for Alfred, Swarm, Librarian, Agent Wiki, Field Guide, Armory/Ghost, Research OS and #admin",
+      "currentStatus": "existing_repo_and_preprod_cloud_run_confirmed",
+      "swarmIntegration": "not_implemented",
+      "updateOwner": "Orbital Context API plus Librarian for durable knowledge writes",
+      "traceOwner": "Swarm",
+      "requiredAction": "refactor out client-side secrets, add context broker, lock storage rules, emit traces, and deploy to third-signal-v2"
+    },
     {
       "name": "Arsenal",
       "linearIssue": "THI-70",
@@ -120,6 +197,11 @@
     }
   ],
   "promotionBacklog": [
+    {
+      "linearIssue": "THI-72",
+      "asset": "Third Signal Agent Wiki",
+      "target": "persistent, cited, agent-readable operating memory for Alfred, Swarm, Donna, Librarian, Ghost, Armory, Field Guide, Arsenal and Research OS"
+    },
     {
       "linearIssue": "THI-61",
       "asset": "Orbital Voice Co-Producer North Star",
@@ -163,7 +245,7 @@
     {
       "linearIssue": "THI-58",
       "asset": "Orbital Context",
-      "target": "browser/plugin context layer for Orbital"
+      "target": "existing repo promoted into a secure v2 browser/plugin context layer with server broker, CaptureCards, Swarm traces, Librarian intake and #admin visibility"
     },
     {
       "linearIssue": "THI-59",
@@ -179,6 +261,8 @@
   "doctrine": [
     "Orbital is the primary operator surface.",
     "Orbital should become voice-native: Lenox talks, Alfred directs, Orbital operates.",
+    "Third Signal Agent Wiki should become the compiled, cited operating memory behind Orbital agents.",
+    "Orbital Context should capture live browser/app proof and route it through Swarm, Librarian, Agent Wiki, Field Guide, Armory/Ghost, Research OS and #admin.",
     "Field Guide is the intended living documentation layer, but Swarm retrieval is not confirmed until THI-56 is complete.",
     "Arsenal is the skill-pack catalog.",
     "Armory is an Orbital module updated by Librarian and used by Ghost; its module path and runtime wiring still need confirmation.",

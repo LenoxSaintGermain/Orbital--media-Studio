@@ -37,6 +37,7 @@ First pilot:
 - Format: Lenox and Alfred co-host the walkthrough.
 - Goal: explain what Lenox wanted to accomplish, what he built, how Orbital works, and why the system matters.
 - Demo surfaces: Orbital Studio, Swarm, Signal Card, Third Signal `#admin`, Research OS handoff, Librarian artifact trail.
+- Context surface: Orbital Context captures browser/app proof moments, selected text, URLs, screenshots, and voice-led "show this" moments as traceable CaptureCards.
 - Output package: outline, scene graph, script beats, transcript, captions, proof log, timeline JSON, asset manifest, and video-ready export path.
 
 This pilot becomes the reusable template for the Orbital video series.
@@ -49,8 +50,11 @@ Use Gemini Live through a server-side Orbital session broker.
 
 Rules:
 
-- Target model: `gemini-3.1-flash-live-preview`.
-- Treat the model as preview and version-gate it behind config.
+- Current operating model: user-confirmed Gemini 3.1 Live Preview path.
+- Use `GEMINI_LIVE_MODEL` as the runtime alias for the exact deployed model string.
+- Preserve the working preview behavior.
+- Add a runtime capability probe before opening a Live session.
+- Update the alias to the GA model name when Gemini 3.1 Live exits preview.
 - Keep a stable fallback path for normal chat/voice when preview behavior changes.
 - Browser clients must not receive `GEMINI_API_KEY` or other privileged provider credentials.
 - Use short-lived session credentials or an equivalent server-mediated handoff.
@@ -85,6 +89,7 @@ Swarm owns execution memory:
 - tool action
 - capture step
 - proof card
+- Orbital Context CaptureCard
 - Research OS claim check
 - Librarian artifact
 - approval gate
@@ -104,15 +109,19 @@ Librarian should update Armory. Ghost should operate inside Armory.
 
 During walkthrough planning, Alfred should retrieve context from:
 
+- Third Signal Agent Wiki
 - Orbital Manifest
 - Armory
 - Orbital Field Guide
 - Arsenal
 - Swarm run reports
+- Orbital Context captures
 - Librarian artifacts
 
 Current status:
 
+- `THI-72` tracks the Third Signal Agent Wiki spec for Alfred, Swarm, Donna, Librarian, Ghost, Armory, Field Guide, Arsenal, Research OS, and Orbital.
+- `THI-58` and `THI-68` track Orbital Context as the browser/app context bridge for walkthrough proof capture.
 - Field Guide retrieval from Swarm is not confirmed.
 - `THI-56` tracks Field Guide promotion and Swarm hook.
 - `THI-70` tracks Arsenal, Armory, Manifest, and Field Guide registry mapping.
@@ -155,6 +164,22 @@ plan -> rehearse -> execute -> capture -> review -> publish
 
 Do not replace production Swarm orchestration with ADK 2.0 until compatibility, failure modes, and rollback behavior are proven.
 
+### Gemini Live Model Policy
+
+Current operating truth:
+
+- Orbital is already using a working Gemini 3.1 Live Preview path.
+- Do not break, downgrade, or replace that path just because public docs may lag or list different Live-capable models.
+
+Policy:
+
+- Use `GEMINI_LIVE_MODEL` as a runtime alias.
+- Read the exact configured model string from deployed config/secret/env.
+- Preserve the current Gemini 3.1 Live Preview behavior.
+- Add a runtime capability probe before opening a Live session.
+- Keep a fallback Live-capable model for recovery only, not as the default replacement.
+- When Gemini 3.1 Live exits preview, update `GEMINI_LIVE_MODEL` to the GA model name without code changes.
+
 ## Linear Program
 
 Parent:
@@ -173,6 +198,7 @@ Implementation tracks:
 - `THI-69`: Produce pilot video package: Introducing Orbital
 - `THI-70`: Map Arsenal, Armory, Manifest, and Field Guide into Orbital knowledge registry
 - `THI-71`: Restore Armory module and define Librarian/Ghost operating contract
+- `THI-72`: Spec Third Signal Agent Wiki for Alfred, Swarm, Donna, Librarian, Ghost, and Orbital
 
 Related existing backlog:
 

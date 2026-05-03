@@ -57,6 +57,7 @@ Current audit:
 
 | Surface | Current status | Required action |
 | --- | --- | --- |
+| Third Signal Agent Wiki | Spec exists at `docs/ops/THIRD_SIGNAL_AGENT_WIKI_SPEC.md` | Bootstrap compiled, cited agent-readable memory and retrieval contract |
 | Arsenal | Public `third-signal-skill-packs` repo confirms an `ARSENAL` catalog of Third Signal skill packs and protocols | Index it as a source Alfred and Swarm can cite |
 | Armory | User-confirmed Orbital module; path not exposed by name in current checkout | Restore/locate module and wire Librarian/Ghost contract |
 | Orbital Manifest | `docs/ops/ORBITAL_ECOSYSTEM_MANIFEST.json` exists as machine-readable operating truth | Keep valid, serve/ingest for agents |
@@ -147,7 +148,19 @@ Production target:
 
 Current state:
 
-- V1 project and high-value promotion candidate.
+- Existing GitHub repo confirmed: `https://github.com/LenoxSaintGermain/orbital-context`.
+- Local checkout: `/Users/lenoxparis/conductor/repos/orbital-context`.
+- Pre-prod/original Cloud Run service: `orbital-context` in `third-signal`, region `us-west1`.
+- Pre-prod URL: `https://orbital-context-pplaphmpxq-uw.a.run.app`.
+- Current code is a useful AI Studio/Vite prototype but not production-ready.
+
+Current blockers:
+
+- Gemini key is injected into browser code by Vite.
+- Gemini analysis runs directly from the client.
+- Firestore and Storage rules are open for dev.
+- Firebase config still targets the original `third-signal` project.
+- Swarm, `#admin`, Librarian, Agent Wiki, Field Guide, Armory/Ghost, Research OS, and Linear handoffs are not implemented.
 
 Production target:
 
@@ -156,6 +169,9 @@ Production target:
 - Sends context cards to Swarm with trace IDs.
 - Supports actions: summarize, research, create Linear issue, save to Librarian, hand off to Alfred.
 - Supports voice-led demo capture so Lenox can say "show this" while Orbital Context captures page state, screenshots, selected text, and proof moments for the walkthrough scene graph.
+- Uses `apps/orbital-context-api` as the server-side broker for model calls, persistence, redaction, and handoffs.
+- Shares a `CaptureCard` schema through `packages/context-core`.
+- Ships a Manifest V3 browser extension only after auth, redaction, retention, and trace gates pass.
 
 ### Orbital Walkthrough Co-Producer
 

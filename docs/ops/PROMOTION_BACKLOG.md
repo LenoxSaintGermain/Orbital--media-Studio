@@ -21,9 +21,10 @@ An asset can move from sandbox to production only when it has:
 
 | Candidate | Current source | Target role | Status |
 | --- | --- | --- | --- |
+| Third Signal Agent Wiki | New spec | Compiled, cited, agent-readable operating memory | Spec created in `THI-72` |
 | Orbital Field Guide | V1/pre-prod | Searchable operating manual for Alfred and Orbital | Needs repo/deploy confirmation |
 | Research OS MCP | V1/research lane | Typed research handoffs and writebacks | Not yet promoted |
-| Orbital Context | V1 project | Browser/plugin context layer for Orbital | Promote and redesign |
+| Orbital Context | Existing repo `LenoxSaintGermain/orbital-context`; V1 Cloud Run service in `third-signal` | Browser/plugin context layer for Orbital | Source confirmed; refactor/security gate required before v2 promotion |
 | Orbital Voice Co-Producer | Orbital OS / new upgrade track | Voice-native walkthrough and video co-production layer | Linear parent `THI-61`; tracks `THI-62`-`THI-69` |
 | Arsenal | `third-signal-skill-packs` | Skill-pack/protocol catalog for Alfred and Swarm | Needs index and retrieval contract |
 | Armory | Orbital module, path not exposed in current checkout | Operational equipment/context registry updated by Librarian; Ghost operates there | Needs module restore/wiring via `THI-71` |
@@ -45,12 +46,29 @@ Before Alfred, Swarm, or Librarian treats a knowledge surface as live, it needs:
 
 Current audit:
 
+- Third Signal Agent Wiki is specified in `docs/ops/THIRD_SIGNAL_AGENT_WIKI_SPEC.md` and tracked by `THI-72`.
 - Arsenal exists publicly as `https://github.com/LenoxSaintGermain/third-signal-skill-packs`.
 - Armory is user-confirmed as an Orbital module, but no `armory` path/component/API is exposed by name in the current checkout.
 - Orbital Manifest exists at `docs/ops/ORBITAL_ECOSYSTEM_MANIFEST.json`.
 - Orbital Field Guide remains unconfirmed as a deployed/retrievable source and is tracked by `THI-56`.
 - Knowledge registry mapping is tracked by `THI-70`.
 - Armory module restore plus Librarian/Ghost contract is tracked by `THI-71`.
+- Orbital Context integration and plugin plan is specified in `docs/ops/ORBITAL_CONTEXT_INTEGRATION_AND_PLUGIN_SPEC.md` and tracked by `THI-58`/`THI-68`.
+
+## Agent Wiki Gate
+
+The Third Signal Agent Wiki should become the compiled context layer behind the Field Guide, Armory, Arsenal, Manifest, Alfred, Swarm, Donna, Librarian, Ghost, and Research OS.
+
+Do not mark it production-ready until:
+
+- `docs/agent-wiki/AGENT_WIKI_SCHEMA.md`, `index.md`, and `log.md` exist.
+- Agent consumers and visibility tiers are enforced.
+- Retrieval returns cited pages, cards, claims, stale items, and follow-ups.
+- Librarian has a canonical write/propose workflow.
+- Ghost has a lint/observation workflow.
+- Donna/Signal Card only receives public-safe context.
+- Swarm emits trace IDs for every retrieval and update.
+- Secret values are excluded.
 
 ## Armory Module Gate
 
@@ -103,6 +121,23 @@ Linear:
 - `THI-68`: Orbital Context browser bridge for voice-led demos
 - `THI-69`: `Introducing Orbital` pilot package
 
+## Backlog Order of Operations
+
+Run the program in this order:
+
+1. Stabilize production and environment truth: keep `third-signal-v2` as production, `third-signal` as pre-prod, vanity domains on v2 only, health checks passing.
+2. Freeze source and security baselines: clean Git history, document provenance, remove/broker secrets, lock storage rules.
+3. Stand up the shared knowledge layer: Agent Wiki, Manifest ingestion, Librarian write path, Armory/Ghost contract, Field Guide source confirmation.
+4. Promote Orbital Context safely: `THI-79` through `THI-84` before any public extension or vanity-domain exposure.
+5. Wire orchestration: Swarm trace IDs, `#admin` queues, Research OS handoffs, Donna public-safe summaries.
+6. Upgrade Orbital voice co-producer: Gemini Live session broker, A2UI cards, ADK 2.0 pre-prod graph, capture/video pipeline.
+7. Build the browser plugin and commercial layer: `THI-85` and `THI-86` only after the secure v2 API and trace gates exist.
+8. Produce the first launch artifact: `Introducing Orbital` pilot with transcript, proof log, scene graph, captions, timeline JSON, asset manifest, and video-ready export.
+
+Critical dependency:
+
+- Do not deploy the current `orbital-context` prototype as production. `THI-80`, `THI-81`, `THI-82`, and `THI-84` must land before plugin packaging or public launch.
+
 ## Orbital Context Product Direction
 
 Orbital Context should become the connective browser layer:
@@ -118,6 +153,26 @@ Orbital Context should become the connective browser layer:
 - A2UI proof cards and scene cards for demos.
 
 The goal is not another wrapper. The goal is to make web work an input to Orbital.
+
+Current source:
+
+- Repo: `https://github.com/LenoxSaintGermain/orbital-context`
+- Local checkout: `/Users/lenoxparis/conductor/repos/orbital-context`
+- Pre-prod Cloud Run URL: `https://orbital-context-pplaphmpxq-uw.a.run.app`
+- Original project: `third-signal`
+- Target project: `third-signal-v2`
+
+Promotion gate:
+
+- Remove direct browser Gemini calls and move model access behind a server-side context broker.
+- Replace client-side `GEMINI_API_KEY` injection with server-side secrets or provider-supported ephemeral credentials.
+- Lock Firestore and Storage rules; current repo rules are open for dev.
+- Add the `CaptureCard` schema and redaction report.
+- Emit Swarm trace IDs for every capture, analysis, save, and handoff.
+- Show capture queue, redaction, approvals, and trace status in `#admin`.
+- Add Librarian intake for approved captures.
+- Route compiled outputs into Agent Wiki, Field Guide, Armory/Ghost, and Research OS.
+- Deploy app/API to `third-signal-v2` before building the commercial Manifest V3 extension.
 
 ## Research OS MCP Gate
 

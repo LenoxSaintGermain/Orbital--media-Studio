@@ -56,7 +56,7 @@ Summary:
 
 Implementation posture:
 
-- Gemini Live targets `gemini-3.1-flash-live-preview` through a server-side session broker.
+- Gemini Live uses the user-confirmed working Gemini 3.1 Live Preview path through the `GEMINI_LIVE_MODEL` runtime alias.
 - A2UI is used as a safe declarative UI contract, not executable generated code.
 - ADK 2.0 is pre-prod/lab first because it is beta/pre-GA.
 - Production remains `third-signal-v2`; risky framework migration happens in pre-prod first.
@@ -93,3 +93,70 @@ Operating rule:
 - Treat Armory as product truth.
 - Treat Armory implementation path and runtime wiring as unconfirmed until `THI-71` locates/restores/builds the module.
 - Armory must store secret references and capability metadata, not secret values.
+
+## 2026-05-03: Third Signal Agent Wiki Spec
+
+Summary:
+
+- Spawned a sub-agent to analyze Karpathy's LLM Wiki pattern and adjacent implementations.
+- Created Linear issue `THI-72`: Spec Third Signal Agent Wiki for Alfred, Swarm, Donna, Librarian, Ghost, and Orbital.
+- Added `docs/ops/THIRD_SIGNAL_AGENT_WIKI_SPEC.md`.
+- Updated the Orbital manifest, knowledge surfaces doc, promotion backlog, voice North Star, README, and ledger.
+
+Key decision:
+
+- The Third Signal Agent Wiki should become the compiled, cited operating memory behind Orbital agents.
+- Field Guide is the human-readable documentation surface.
+- Armory is the operational module updated by Librarian where Ghost operates.
+- Arsenal is the skill/protocol catalog.
+- Orbital Manifest remains machine-readable environment truth.
+- Swarm owns traces for retrieval, updates, claims, and action handoffs.
+
+Model policy:
+
+- User confirms Orbital is already using a working Gemini 3.1 Live Preview path.
+- Do not break, downgrade, or replace that path just because public docs may lag or list different Live-capable models.
+- Use `GEMINI_LIVE_MODEL` as a runtime alias, preserve the current preview behavior, add runtime capability probing, and update the alias to the GA model name when preview exits.
+
+## 2026-05-03: Orbital Context Existing Repo Integration Plan
+
+Summary:
+
+- User confirmed `orbital-context` already exists in GitHub.
+- Confirmed repo: `https://github.com/LenoxSaintGermain/orbital-context`.
+- Cloned local checkout: `/Users/lenoxparis/conductor/repos/orbital-context`.
+- Confirmed pre-prod/original Cloud Run service: `orbital-context` in `third-signal`, region `us-west1`.
+- Confirmed pre-prod URL: `https://orbital-context-pplaphmpxq-uw.a.run.app`.
+- Added `docs/ops/ORBITAL_CONTEXT_INTEGRATION_AND_PLUGIN_SPEC.md`.
+- Updated the operating model, promotion backlog, knowledge surfaces, voice North Star, manifest, README, and ledger.
+- Updated Linear `THI-58` and `THI-68`.
+- Created Linear execution issues:
+  - `THI-79`: Orbital Context repo baseline and provenance freeze
+  - `THI-80`: Build Orbital Context server-side context broker
+  - `THI-81`: Define CaptureCard schema, redaction, and context-core package
+  - `THI-82`: Wire Orbital Context to Swarm traces and `#admin` queue
+  - `THI-83`: Add Librarian, Agent Wiki, Field Guide, Armory/Ghost, and Research OS handoffs
+  - `THI-84`: Deploy refactored Orbital Context app and API to `third-signal-v2`
+  - `THI-85`: Build Orbital Context Manifest V3 browser extension MVP
+  - `THI-86`: Package Orbital Context as commercial plugin product
+
+Code audit findings:
+
+- The current app is a valuable AI Studio/Vite prototype.
+- `vite.config.ts` injects `GEMINI_API_KEY` into browser code.
+- `services/geminiService.ts` calls Gemini directly from the client.
+- Firestore and Storage rules are open for dev.
+- The app targets the original `third-signal` Firebase project.
+- Swarm, `#admin`, Librarian, Agent Wiki, Field Guide, Armory/Ghost, Research OS, Linear, and browser extension wiring are not implemented yet.
+
+Execution rule:
+
+- Do not promote the current app as-is.
+- First refactor into `context-core`, `orbital-context-api`, `orbital-context-run`, and `orbital-context-extension`.
+- Production requires server-side or ephemeral-token model access, locked persistence, redaction, Swarm trace IDs, Librarian intake, and `#admin` visibility.
+
+Source references checked:
+
+- ADK 2.0 remains beta/pre-GA; keep ADK 2.0 work in pre-prod/lab until production risk is proven.
+- A2UI is public-preview; use it as a declarative card contract rendered by trusted Orbital components.
+- Gemini Live production guidance supports server mediation or ephemeral credentials rather than exposing standard API keys to browser clients.
