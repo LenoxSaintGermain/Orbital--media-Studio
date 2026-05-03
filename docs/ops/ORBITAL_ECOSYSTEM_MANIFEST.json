@@ -91,12 +91,14 @@
     },
     {
       "name": "Armory",
-      "linearIssue": "THI-70",
-      "source": null,
-      "role": "expected operational tool/provider inventory if the name remains valid",
-      "currentStatus": "not_found_in_accessible_local_or_public_sources",
-      "swarmIntegration": "not_confirmed",
-      "requiredAction": "confirm source of truth or retire/fold into manifest"
+      "linearIssue": "THI-71",
+      "source": "orbital module path TBD",
+      "role": "Orbital operational equipment and context registry updated by Librarian and used by Ghost",
+      "currentStatus": "user_confirmed_orbital_module_not_exposed_by_name_in_current_checkout",
+      "swarmIntegration": "module_path_and_trace_wiring_not_confirmed",
+      "updateOwner": "Librarian",
+      "ambientOperator": "Ghost",
+      "requiredAction": "locate or rebuild Armory module and define Librarian update plus Ghost operating contract"
     },
     {
       "name": "Orbital Manifest",
@@ -144,6 +146,11 @@
       "target": "canonical context sources for Alfred, Swarm, Librarian, Research OS and Orbital walkthrough planning"
     },
     {
+      "linearIssue": "THI-71",
+      "asset": "Armory module",
+      "target": "Orbital module updated by Librarian where Ghost operates over tool, provider, capability and context inventory"
+    },
+    {
       "linearIssue": "THI-56",
       "asset": "Orbital Field Guide",
       "target": "v2 production searchable operating manual and Swarm-retrievable context source for Orbital and Alfred"
@@ -173,7 +180,8 @@
     "Orbital is the primary operator surface.",
     "Orbital should become voice-native: Lenox talks, Alfred directs, Orbital operates.",
     "Field Guide is the intended living documentation layer, but Swarm retrieval is not confirmed until THI-56 is complete.",
-    "Arsenal is the skill-pack catalog; Armory still needs source confirmation.",
+    "Arsenal is the skill-pack catalog.",
+    "Armory is an Orbital module updated by Librarian and used by Ghost; its module path and runtime wiring still need confirmation.",
     "Swarm owns coordination, trace IDs and handoffs.",
     "Third-party tools are provider adapters behind Orbital, not places the operator must live.",
     "Provider credentials stay server-side.",

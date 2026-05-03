@@ -98,11 +98,14 @@ Field Guide should be the living Orbital documentation/context layer.
 
 Arsenal should be the skill-pack and protocol catalog.
 
-Armory still needs source confirmation. If retained, it should become the provider/tool inventory for adapters, credentials, scopes, health, and approval gates.
+Armory is an Orbital module. It should hold the provider/tool inventory for adapters, credential references, scopes, health, approval gates, and Ghost ambient context.
+
+Librarian should update Armory. Ghost should operate inside Armory.
 
 During walkthrough planning, Alfred should retrieve context from:
 
 - Orbital Manifest
+- Armory
 - Orbital Field Guide
 - Arsenal
 - Swarm run reports
@@ -113,6 +116,7 @@ Current status:
 - Field Guide retrieval from Swarm is not confirmed.
 - `THI-56` tracks Field Guide promotion and Swarm hook.
 - `THI-70` tracks Arsenal, Armory, Manifest, and Field Guide registry mapping.
+- `THI-71` tracks Armory module restore plus Librarian/Ghost operating contract.
 
 ### A2UI Contract Layer
 
@@ -168,6 +172,7 @@ Implementation tracks:
 - `THI-68`: Design Orbital Context browser bridge for voice-led demos
 - `THI-69`: Produce pilot video package: Introducing Orbital
 - `THI-70`: Map Arsenal, Armory, Manifest, and Field Guide into Orbital knowledge registry
+- `THI-71`: Restore Armory module and define Librarian/Ghost operating contract
 
 Related existing backlog:
 

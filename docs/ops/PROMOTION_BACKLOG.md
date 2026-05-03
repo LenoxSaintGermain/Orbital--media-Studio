@@ -26,7 +26,7 @@ An asset can move from sandbox to production only when it has:
 | Orbital Context | V1 project | Browser/plugin context layer for Orbital | Promote and redesign |
 | Orbital Voice Co-Producer | Orbital OS / new upgrade track | Voice-native walkthrough and video co-production layer | Linear parent `THI-61`; tracks `THI-62`-`THI-69` |
 | Arsenal | `third-signal-skill-packs` | Skill-pack/protocol catalog for Alfred and Swarm | Needs index and retrieval contract |
-| Armory | Unknown | Operational tool/provider inventory if still valid | Needs source confirmation |
+| Armory | Orbital module, path not exposed in current checkout | Operational equipment/context registry updated by Librarian; Ghost operates there | Needs module restore/wiring via `THI-71` |
 | Orbital Manifest | Orbital docs | Machine-readable operating truth | Exists; runtime consumption not confirmed |
 | TSL Brand Guide | Manus-hosted, GitHub-backed | Brand system site in GCP | Needs import plan |
 | Other Manus assets | Manus/GitHub | Approved production surfaces | Inventory required |
@@ -46,10 +46,30 @@ Before Alfred, Swarm, or Librarian treats a knowledge surface as live, it needs:
 Current audit:
 
 - Arsenal exists publicly as `https://github.com/LenoxSaintGermain/third-signal-skill-packs`.
-- Armory was not found by name in accessible local/public source.
+- Armory is user-confirmed as an Orbital module, but no `armory` path/component/API is exposed by name in the current checkout.
 - Orbital Manifest exists at `docs/ops/ORBITAL_ECOSYSTEM_MANIFEST.json`.
 - Orbital Field Guide remains unconfirmed as a deployed/retrievable source and is tracked by `THI-56`.
 - Knowledge registry mapping is tracked by `THI-70`.
+- Armory module restore plus Librarian/Ghost contract is tracked by `THI-71`.
+
+## Armory Module Gate
+
+Armory is not an external docs repo. It is an Orbital module.
+
+Target role:
+
+- Operational registry of tools, adapters, provider capabilities, health, scopes, approval gates, and runbooks.
+- Updated by Librarian as part of its scheduled jobs.
+- Used by Ghost as the ambient context and warning layer inside Orbital.
+
+Do not mark Armory production-ready until:
+
+- Module path or route is confirmed in Git source of truth.
+- Storage/data model is documented.
+- Librarian write/update contract exists.
+- Ghost read/write behavior is documented.
+- Swarm emits trace IDs for Armory reads, updates, and Ghost interventions.
+- No secret values are stored in Armory; only secret references and capability metadata.
 
 ## Orbital Voice Co-Producer Direction
 

@@ -58,7 +58,7 @@ Current audit:
 | Surface | Current status | Required action |
 | --- | --- | --- |
 | Arsenal | Public `third-signal-skill-packs` repo confirms an `ARSENAL` catalog of Third Signal skill packs and protocols | Index it as a source Alfred and Swarm can cite |
-| Armory | Not found in accessible local/public sources by name | Confirm source or retire the name |
+| Armory | User-confirmed Orbital module; path not exposed by name in current checkout | Restore/locate module and wire Librarian/Ghost contract |
 | Orbital Manifest | `docs/ops/ORBITAL_ECOSYSTEM_MANIFEST.json` exists as machine-readable operating truth | Keep valid, serve/ingest for agents |
 | Orbital Field Guide | Documented as a promotion candidate, but no public/local repo or Swarm hook found by name | Confirm repo/source and wire retrieval through Swarm |
 
@@ -66,6 +66,14 @@ Backlog:
 
 - `THI-56`: Promote Orbital Field Guide from V1 sandbox into v2 production
 - `THI-70`: Map Arsenal, Armory, Manifest, and Field Guide into Orbital knowledge registry
+- `THI-71`: Restore Armory module and define Librarian/Ghost operating contract
+
+Armory rule:
+
+- Armory is an Orbital module, not an external repo.
+- Librarian should update Armory as part of its jobs.
+- Ghost should operate inside Armory as the ambient context/intelligence layer.
+- This branch does not currently expose the Armory path by name, so production readiness depends on `THI-71`.
 
 ## Voice-Native North Star
 

@@ -76,4 +76,20 @@ Summary:
 Operating rule:
 
 - Agents should not assume Field Guide is hooked to Swarm until `THI-56` proves retrieval with a trace ID.
-- Agents should not assume Armory exists until `THI-70` confirms a source or retires the name.
+- Armory is now user-confirmed as an Orbital module, but this branch does not expose its source path by name.
+
+## 2026-05-03: Armory Correction
+
+Summary:
+
+- Corrected the prior ambiguity: Armory is an Orbital module, not an external repo and not a deprecated name.
+- User confirmed Librarian is supposed to update Armory as one of its jobs.
+- User confirmed Ghost operates inside Armory.
+- Current checkout still does not expose an `armory` path, route, component, or API by name.
+- Created `THI-71`: Restore Armory module and define Librarian/Ghost operating contract.
+
+Operating rule:
+
+- Treat Armory as product truth.
+- Treat Armory implementation path and runtime wiring as unconfirmed until `THI-71` locates/restores/builds the module.
+- Armory must store secret references and capability metadata, not secret values.

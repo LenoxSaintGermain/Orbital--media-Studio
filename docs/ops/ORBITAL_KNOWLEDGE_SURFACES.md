@@ -13,7 +13,7 @@ Current audit found that some names are real sources and some are still unresolv
 | Surface | Current evidence | Intended role | Swarm status |
 | --- | --- | --- | --- |
 | Arsenal | Public repo `third-signal-skill-packs`; README contains `The ARSENAL` catalog | Canonical catalog of reusable Third Signal skill packs, protocols, and operating primitives | Not wired in current Orbital checkout |
-| Armory | Not found by name in accessible local repos, Orbital remote branches, public GitHub repo names, or public Swarm clone | Expected tool/provider/adapter inventory if the name is still valid | Not confirmed |
+| Armory | User-confirmed Orbital module; not exposed by name in this checkout or fetched remote branch | Operational equipment/context registry updated by Librarian; Ghost operates there | Module path/runtime wiring not confirmed |
 | Orbital Manifest | `docs/ops/ORBITAL_ECOSYSTEM_MANIFEST.json` | Machine-readable operating manifest for environments, services, doctrine, backlog, knowledge surfaces, and voice layer | Local doc artifact; runtime consumption not confirmed |
 | Orbital Field Guide | Referenced as a promotion candidate; no public/local repo found by name | Searchable documentation/context layer for Alfred, Orbital, Swarm, Librarian, and Research OS | Not confirmed; `THI-56` now tracks wiring |
 
@@ -52,24 +52,61 @@ Required integration:
 
 Current state:
 
-- No accessible source was found by name.
+- Armory is product-confirmed as a module inside Orbital.
+- This checkout does not currently expose an `armory` path, component, route, or API by name.
+- Treat the missing path as a source-of-truth gap, not proof that Armory is deprecated.
 
-Decision needed:
+Role:
 
-- If Armory is the provider/tool inventory, define it as the registry of live adapters, credentials, capabilities, rate limits, and approval gates.
-- If Armory is a deprecated name, retire it and fold the concept into the Orbital Manifest plus Arsenal.
+- Armory is the operational equipment and context registry for Orbital.
+- Librarian updates Armory as part of its jobs.
+- Ghost operates inside Armory as the ambient context/intelligence layer.
 
-Recommended target:
+Target contents:
 
-- Armory should be the operational equipment registry:
-  - provider adapters
-  - tool endpoints
-  - secret names
-  - capability scopes
-  - approval requirements
-  - health state
-  - owner
-  - runbook link
+- Provider adapters.
+- Tool endpoints.
+- Secret names and credential locations, never secret values.
+- Capability scopes.
+- Approval requirements.
+- Health state and freshness metadata.
+- Owner and runbook links.
+- Field Guide, Arsenal, Manifest, Swarm, Research OS, and Librarian links.
+- Ghost observations, warnings, suggestions, and ambient context cards.
+
+Required integration:
+
+- Locate the original Armory module source or rebuild the module in Orbital.
+- Define Librarian update inputs, cadence, write permissions, and audit log.
+- Define Ghost read/write behavior inside Armory.
+- Emit Swarm trace IDs for Armory reads, updates, and Ghost interventions.
+- Add an Orbital UI route or panel for Armory.
+- Add a smoke test proving Librarian can update Armory and Ghost can read from it.
+
+Minimum contract:
+
+```json
+{
+  "source": "armory",
+  "operation": "librarian_update",
+  "trace_id": "swarm-trace-id",
+  "updated_by": "librarian",
+  "ghost_visible": true,
+  "entry": {
+    "name": "Gemini Live voice session broker",
+    "type": "provider_adapter",
+    "capabilities": ["voice_session", "low_latency_audio"],
+    "secret_refs": ["GEMINI_API_KEY"],
+    "approval_required": false,
+    "health": "unknown",
+    "runbook": "docs/ops/ORBITAL_VOICE_NORTH_STAR.md"
+  }
+}
+```
+
+Linear:
+
+- `THI-71`: Restore Armory module and define Librarian/Ghost operating contract
 
 ## Orbital Manifest
 
@@ -124,4 +161,4 @@ Linear:
 
 - `THI-56`: Promote Orbital Field Guide from V1 sandbox into v2 production
 - `THI-70`: Map Arsenal, Armory, Manifest, and Field Guide into Orbital knowledge registry
-
+- `THI-71`: Restore Armory module and define Librarian/Ghost operating contract
