@@ -1,0 +1,80 @@
+{
+  "updatedAt": "2026-05-03",
+  "source": "Third Signal / Orbital recovery documentation",
+  "environmentPolicy": {
+    "productionProject": "third-signal-v2",
+    "productionBillingAccount": "billingAccounts/01789C-776EBA-EB68EA",
+    "preprodProject": "third-signal",
+    "preprodBillingAccount": "billingAccounts/010740-3D9EF7-0A85BE",
+    "vanityDomains": "production-only",
+    "preprodAccess": "long run.app URLs only"
+  },
+  "productionServices": [
+    {
+      "name": "Third Signal HQ / Vault",
+      "cloudRunService": "signal-vault",
+      "url": "https://thirdsignal.ai",
+      "role": "Public HQ, portfolio, admin, Librarian and Engram memory"
+    },
+    {
+      "name": "Signal Card",
+      "cloudRunService": "signal-card",
+      "url": "https://line.thirdsignal.ai",
+      "role": "Front-door conversational agent"
+    },
+    {
+      "name": "Orbital Studio",
+      "cloudRunService": "orbital-studio",
+      "url": "https://orbital.thirdsignal.ai",
+      "aliases": [
+        "https://operator.thirdsignal.ai"
+      ],
+      "role": "Operator cockpit and AI tool command layer"
+    },
+    {
+      "name": "Swarm",
+      "cloudRunService": "orbital-swarm-adk",
+      "url": "https://orbital-swarm-adk-325422432428.europe-west1.run.app",
+      "role": "Coordination backend, reports, agent settings and handoffs"
+    }
+  ],
+  "health": {
+    "lastKnownHealthyReport": "sig-YRZ6EJRYpm",
+    "knownDnsGap": "www.thirdsignal.ai requires CNAME ghs.googlehosted.com",
+    "coreUrlsHealthy": true
+  },
+  "promotionBacklog": [
+    {
+      "linearIssue": "THI-56",
+      "asset": "Orbital Field Guide",
+      "target": "v2 production searchable operating manual for Orbital and Alfred"
+    },
+    {
+      "linearIssue": "THI-57",
+      "asset": "Research OS MCP",
+      "target": "typed Swarm handoffs and research writebacks"
+    },
+    {
+      "linearIssue": "THI-58",
+      "asset": "Orbital Context",
+      "target": "browser/plugin context layer for Orbital"
+    },
+    {
+      "linearIssue": "THI-59",
+      "asset": "Manus-hosted brand and microsite assets",
+      "target": "approved production hosting with health checks"
+    },
+    {
+      "linearIssue": "THI-60",
+      "asset": "Orbital adapter platform",
+      "target": "single operator surface for third-party AI tools"
+    }
+  ],
+  "doctrine": [
+    "Orbital is the primary operator surface.",
+    "Swarm owns coordination, trace IDs and handoffs.",
+    "Third-party tools are provider adapters behind Orbital, not places the operator must live.",
+    "Provider credentials stay server-side.",
+    "Production changes require Linear and Librarian documentation."
+  ]
+}

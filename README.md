@@ -18,3 +18,10 @@ View your app in AI Studio: https://ai.studio/apps/drive/1W9pUTvxg8fGE_kNoCuqZe1
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Operating Docs
+
+Orbital/Alfred/Librarian operating context lives in:
+
+- [docs/ops/THIRD_SIGNAL_ORBITAL_OPERATING_MODEL.md](docs/ops/THIRD_SIGNAL_ORBITAL_OPERATING_MODEL.md)
+- [docs/ops/PROMOTION_BACKLOG.md](docs/ops/PROMOTION_BACKLOG.md)
