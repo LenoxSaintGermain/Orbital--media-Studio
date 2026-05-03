@@ -13,6 +13,7 @@ Current audit found that some names are real sources and some are still unresolv
 | Surface | Current evidence | Intended role | Swarm status |
 | --- | --- | --- | --- |
 | Third Signal Agent Wiki | Spec at `docs/ops/THIRD_SIGNAL_AGENT_WIKI_SPEC.md` | Canonical compiled knowledge layer for agents | Not implemented |
+| Third Signal SWAT | Protocol at `docs/ops/THIRD_SIGNAL_SWAT_PROTOCOL.md`; Codex skill at `/Users/lenoxparis/.codex/skills/third-signal-swat/SKILL.md` | Gated multi-agent mission protocol and OUP compliance layer | Protocol created; runtime Swarm/Conductor automation not implemented |
 | Orbital Context | Existing repo `LenoxSaintGermain/orbital-context`; pre-prod Cloud Run service exists in `third-signal` | Context intake layer that turns browser/app state into traceable capture cards | Not wired to Swarm/Librarian/Agent Wiki/Armory yet |
 | Arsenal | Public repo `third-signal-skill-packs`; README contains `The ARSENAL` catalog | Canonical catalog of reusable Third Signal skill packs, protocols, and operating primitives | Not wired in current Orbital checkout |
 | Armory | User-confirmed Orbital module; not exposed by name in this checkout or fetched remote branch | Operational equipment/context registry updated by Librarian; Ghost operates there | Module path/runtime wiring not confirmed |
@@ -54,6 +55,27 @@ Required integration:
 - Add Swarm events for retrieval, update proposals, committed updates, stale claims, and contradictions.
 - Add visibility tiers: `public`, `internal`, `operator_only`.
 - Add evidence labels: `verified`, `user_confirmed`, `observed`, `inferred`, `contradicted`.
+
+## Third Signal SWAT
+
+Current source:
+
+- `docs/ops/THIRD_SIGNAL_SWAT_PROTOCOL.md`
+- Codex skill: `/Users/lenoxparis/.codex/skills/third-signal-swat/SKILL.md`
+- Career-agent-one protocol: `docs/THIRD_SIGNAL_SWAT_PROTOCOL.md`
+- Agent Wiki page: `docs/agent-wiki/protocols/third-signal-swat.md`
+
+Role:
+
+- Gated multi-agent mission protocol for Third Signal and Orbital work.
+- Converts consultant-style broad SWAT prompts into source-backed missions with OUP gates, Linear issues, Swarm traces, Librarian/Agent Wiki updates, and Integration Sentinel review.
+
+Required integration:
+
+- Create SWAT mission/task records in Linear before code execution.
+- Route production-impacting work through Swarm traces.
+- Store mission briefs, OUP gates, sentinel reports, and changelogs as Librarian artifacts.
+- Do not automate through Conductor until prompt naming, webhook verification, and artifact ingest blockers are fixed in `career-agent-one`.
 
 ## Orbital Context
 

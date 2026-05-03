@@ -160,3 +160,37 @@ Source references checked:
 - ADK 2.0 remains beta/pre-GA; keep ADK 2.0 work in pre-prod/lab until production risk is proven.
 - A2UI is public-preview; use it as a declarative card contract rendered by trusted Orbital components.
 - Gemini Live production guidance supports server mediation or ephemeral credentials rather than exposing standard API keys to browser clients.
+
+## 2026-05-03: Third Signal SWAT Protocol and Skill
+
+Summary:
+
+- Adapted the consultant SWAT prompt into a Third Signal-specific operating protocol.
+- Added `docs/ops/THIRD_SIGNAL_SWAT_PROTOCOL.md`.
+- Installed Codex skill at `/Users/lenoxparis/.codex/skills/third-signal-swat/SKILL.md`.
+- Added skill references for source truth, repo map, gates, deployment policy, design system, roster, mission brief, OUP gate, sentinel report, and PR block.
+- Updated Orbital README, Agent Wiki spec, knowledge surfaces, ecosystem manifest, and ledger.
+- Created Linear issues `THI-87` through `THI-91`.
+
+Key decisions:
+
+- Treat the consultant CANVAS/SIGNAL/AUDIO/GHOST/MNEME/SETTINGS/INFRA roster as a capability map, not a file-edit mandate.
+- Dispatch only against confirmed source paths.
+- Real Orbital Studio implementation lanes today: `CANVAS` and `INFRA`.
+- Speculative lanes such as `MNEME`, `Ghost Pilot`, and `Audio Studio` require Linear/Agent Wiki specs before code edits.
+- `DEPLOY_ON_COMPLETION=false` remains the default.
+- OUP gate is expanded to include Linear/Swarm/Librarian traceability and secret/deploy/retention/public-surface risk.
+
+Operational blockers captured:
+
+- Orbital Studio and Orbital Context both still have browser-bundled Gemini key patterns that require server-side broker work.
+- Orbital Context remains blocked until `THI-80` through `THI-84` land.
+- `career-agent-one` SWAT automation through Conductor should wait for prompt naming, webhook verification, and artifact ingest fixes.
+
+Linear:
+
+- `THI-87`: Operationalize Third Signal SWAT protocol
+- `THI-88`: Fix Conductor prompt routing for SWAT missions
+- `THI-89`: Enforce Conductor webhook verification before SWAT automation
+- `THI-90`: Implement Conductor artifact ingest for Librarian SWAT records
+- `THI-91`: Audit and remove browser-bundled Gemini keys across Orbital SWAT surfaces

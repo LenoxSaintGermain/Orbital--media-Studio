@@ -147,6 +147,17 @@
       "requiredAction": "bootstrap schema, index, log, retrieval contract and Librarian/Ghost workflows"
     },
     {
+      "name": "Third Signal SWAT",
+      "linearIssue": "THI-87",
+      "source": "docs/ops/THIRD_SIGNAL_SWAT_PROTOCOL.md",
+      "role": "gated multi-agent mission protocol with OUP gates, Linear tracking, Swarm traces, Librarian/Agent Wiki updates, and Integration Sentinel review",
+      "currentStatus": "protocol_created",
+      "swarmIntegration": "not_implemented",
+      "updateOwner": "Mission Commander plus Librarian for durable protocol updates",
+      "traceOwner": "Swarm",
+      "requiredAction": "complete THI-88, THI-89, THI-90 and THI-91 before SWAT automation"
+    },
+    {
       "name": "Orbital Context",
       "linearIssue": "THI-58",
       "source": "https://github.com/LenoxSaintGermain/orbital-context",
@@ -262,6 +273,7 @@
     "Orbital is the primary operator surface.",
     "Orbital should become voice-native: Lenox talks, Alfred directs, Orbital operates.",
     "Third Signal Agent Wiki should become the compiled, cited operating memory behind Orbital agents.",
+    "Third Signal SWAT should govern parallel agent missions with OUP gates, source-truth checks, Integration Sentinel review and no production deploy without explicit approval.",
     "Orbital Context should capture live browser/app proof and route it through Swarm, Librarian, Agent Wiki, Field Guide, Armory/Ghost, Research OS and #admin.",
     "Field Guide is the intended living documentation layer, but Swarm retrieval is not confirmed until THI-56 is complete.",
     "Arsenal is the skill-pack catalog.",

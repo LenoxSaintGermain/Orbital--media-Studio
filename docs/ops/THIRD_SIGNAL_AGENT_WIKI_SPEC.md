@@ -47,6 +47,7 @@ Third Signal adaptation:
 | Arsenal | Skill-pack and protocol catalog |
 | Orbital Context | Browser/app context intake layer that creates traceable CaptureCards |
 | Orbital Manifest | Machine-readable environment and service truth |
+| Third Signal SWAT | Gated multi-agent mission protocol and OUP compliance layer |
 | Swarm | Coordination plane and trace owner |
 | Librarian | Canonical wiki/Field Guide/Armory updater |
 | Ghost | Ambient context, warning, and stale/contradiction detection inside Armory |
@@ -85,6 +86,7 @@ Raw sources are immutable or append-only inputs:
 - Supabase/Librarian artifacts.
 - Orbital Manifest.
 - Orbital Context CaptureCards, redaction reports, and proof captures.
+- Third Signal SWAT mission briefs, OUP gates, Integration Sentinel reports, and changelogs.
 - Field Guide source pages.
 - Arsenal skill-pack docs.
 - Armory entries.
