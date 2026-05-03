@@ -43,11 +43,110 @@
     "knownDnsGap": "www.thirdsignal.ai requires CNAME ghs.googlehosted.com",
     "coreUrlsHealthy": true
   },
+  "northStar": {
+    "linearIssue": "THI-61",
+    "name": "Orbital voice-native walkthrough co-producer",
+    "statement": "Lenox talks; Alfred and Orbital plan, operate, capture, explain and produce.",
+    "pilot": "Introducing Orbital",
+    "outputPackage": [
+      "outline",
+      "scene_graph",
+      "script_beats",
+      "transcript",
+      "captions",
+      "proof_log",
+      "timeline_json",
+      "asset_manifest",
+      "video_ready_export_path"
+    ]
+  },
+  "voiceOperatingLayer": {
+    "targetModel": "gemini-3.1-flash-live-preview",
+    "modelPolicy": "preview_model_version_gated_with_stable_fallback",
+    "credentialPolicy": "server_side_session_broker_only",
+    "a2uiCardFamilies": [
+      "walkthrough.scene",
+      "narration.beat",
+      "tool.action",
+      "capture.step",
+      "proof.card",
+      "approval.gate",
+      "publish.asset",
+      "handoff.request"
+    ],
+    "adkPolicy": "prototype_adk_2_0_in_preprod_before_production_adoption",
+    "traceOwner": "Swarm",
+    "artifactOwner": "Librarian",
+    "reviewSurface": "#admin"
+  },
+  "knowledgeSurfaces": [
+    {
+      "name": "Arsenal",
+      "linearIssue": "THI-70",
+      "source": "https://github.com/LenoxSaintGermain/third-signal-skill-packs",
+      "role": "Third Signal skill-pack and protocol catalog",
+      "currentStatus": "public_repo_confirmed",
+      "swarmIntegration": "not_wired_in_current_orbital_checkout",
+      "requiredAction": "index as an Alfred and Swarm-citable source"
+    },
+    {
+      "name": "Armory",
+      "linearIssue": "THI-70",
+      "source": null,
+      "role": "expected operational tool/provider inventory if the name remains valid",
+      "currentStatus": "not_found_in_accessible_local_or_public_sources",
+      "swarmIntegration": "not_confirmed",
+      "requiredAction": "confirm source of truth or retire/fold into manifest"
+    },
+    {
+      "name": "Orbital Manifest",
+      "linearIssue": "THI-70",
+      "source": "docs/ops/ORBITAL_ECOSYSTEM_MANIFEST.json",
+      "role": "machine-readable operating truth for agents",
+      "currentStatus": "local_doc_manifest_exists",
+      "swarmIntegration": "runtime_consumption_not_confirmed",
+      "requiredAction": "serve or ingest for Alfred, Swarm and Librarian"
+    },
+    {
+      "name": "Orbital Field Guide",
+      "linearIssue": "THI-56",
+      "source": null,
+      "role": "searchable documentation and context layer for Orbital",
+      "currentStatus": "promotion_candidate_source_not_confirmed",
+      "swarmIntegration": "not_confirmed",
+      "requiredAction": "confirm repo/deploy target and add Swarm retrieval with trace IDs"
+    }
+  ],
   "promotionBacklog": [
+    {
+      "linearIssue": "THI-61",
+      "asset": "Orbital Voice Co-Producer North Star",
+      "target": "voice-native agentic operating layer and walkthrough co-production system"
+    },
+    {
+      "linearIssue": "THI-63",
+      "asset": "Gemini Live voice session broker",
+      "target": "secure low-latency voice layer with server-side credentials and Swarm trace events"
+    },
+    {
+      "linearIssue": "THI-64",
+      "asset": "A2UI scene graph contract",
+      "target": "safe declarative scene, proof, action, approval and publish cards"
+    },
+    {
+      "linearIssue": "THI-66",
+      "asset": "Walkthrough video production pipeline",
+      "target": "storyboard, transcript, proof log, captions, timeline and video-ready export package"
+    },
+    {
+      "linearIssue": "THI-70",
+      "asset": "Arsenal, Armory, Manifest and Field Guide knowledge registry",
+      "target": "canonical context sources for Alfred, Swarm, Librarian, Research OS and Orbital walkthrough planning"
+    },
     {
       "linearIssue": "THI-56",
       "asset": "Orbital Field Guide",
-      "target": "v2 production searchable operating manual for Orbital and Alfred"
+      "target": "v2 production searchable operating manual and Swarm-retrievable context source for Orbital and Alfred"
     },
     {
       "linearIssue": "THI-57",
@@ -72,6 +171,9 @@
   ],
   "doctrine": [
     "Orbital is the primary operator surface.",
+    "Orbital should become voice-native: Lenox talks, Alfred directs, Orbital operates.",
+    "Field Guide is the intended living documentation layer, but Swarm retrieval is not confirmed until THI-56 is complete.",
+    "Arsenal is the skill-pack catalog; Armory still needs source confirmation.",
     "Swarm owns coordination, trace IDs and handoffs.",
     "Third-party tools are provider adapters behind Orbital, not places the operator must live.",
     "Provider credentials stay server-side.",

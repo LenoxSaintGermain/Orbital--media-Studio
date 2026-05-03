@@ -25,3 +25,5 @@ Orbital/Alfred/Librarian operating context lives in:
 
 - [docs/ops/THIRD_SIGNAL_ORBITAL_OPERATING_MODEL.md](docs/ops/THIRD_SIGNAL_ORBITAL_OPERATING_MODEL.md)
 - [docs/ops/PROMOTION_BACKLOG.md](docs/ops/PROMOTION_BACKLOG.md)
+- [docs/ops/ORBITAL_VOICE_NORTH_STAR.md](docs/ops/ORBITAL_VOICE_NORTH_STAR.md)
+- [docs/ops/ORBITAL_KNOWLEDGE_SURFACES.md](docs/ops/ORBITAL_KNOWLEDGE_SURFACES.md)

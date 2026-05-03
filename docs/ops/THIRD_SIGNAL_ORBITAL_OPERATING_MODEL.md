@@ -49,6 +49,48 @@ Required properties:
 - Actions write traceable events to Swarm, Firestore, Supabase, or Librarian artifacts.
 - Alfred can read the current operating model before recommending production changes.
 
+## Knowledge Surfaces
+
+Orbital needs a named knowledge registry so agents know where to retrieve context from.
+
+Current audit:
+
+| Surface | Current status | Required action |
+| --- | --- | --- |
+| Arsenal | Public `third-signal-skill-packs` repo confirms an `ARSENAL` catalog of Third Signal skill packs and protocols | Index it as a source Alfred and Swarm can cite |
+| Armory | Not found in accessible local/public sources by name | Confirm source or retire the name |
+| Orbital Manifest | `docs/ops/ORBITAL_ECOSYSTEM_MANIFEST.json` exists as machine-readable operating truth | Keep valid, serve/ingest for agents |
+| Orbital Field Guide | Documented as a promotion candidate, but no public/local repo or Swarm hook found by name | Confirm repo/source and wire retrieval through Swarm |
+
+Backlog:
+
+- `THI-56`: Promote Orbital Field Guide from V1 sandbox into v2 production
+- `THI-70`: Map Arsenal, Armory, Manifest, and Field Guide into Orbital knowledge registry
+
+## Voice-Native North Star
+
+Orbital should move beyond voice navigation into a voice-native agentic operating layer.
+
+Target experience:
+
+- Lenox speaks naturally.
+- Alfred interviews, clarifies, and narrates.
+- Orbital turns spoken intent into typed plans, safe tool actions, proof capture, and video-ready walkthrough artifacts.
+- Swarm records trace IDs for every intent, action, capture, approval, and handoff.
+- Research OS validates public claims.
+- Librarian stores the transcript, storyboard, proof log, and final package.
+- `#admin` exposes run state, approvals, and publish readiness.
+
+Flagship deliverable:
+
+- `THI-61`: North Star: Orbital voice-native walkthrough co-producer
+- Pilot: `Introducing Orbital`
+- Output: outline, A2UI-style scene graph, script beats, transcript, captions, proof log, timeline JSON, asset manifest, and video-ready export path.
+
+Production rule:
+
+- Gemini Live, ADK 2.0, A2UI, capture workers, and publisher flows must enter through safe adapters and pre-prod validation. No provider keys in browser code. No ADK 2.0 production replacement until the beta/pre-GA risk is proven acceptable.
+
 ## Swarm Role
 
 Swarm is the coordination plane:
@@ -69,6 +111,7 @@ Current state:
 
 - V1/pre-prod asset.
 - Needs repo, deploy target, and search endpoint confirmed.
+- Current accessible-source audit did not find a public/local `orbital-field-guide` repo or a Swarm retrieval hook by name.
 
 Production target:
 
@@ -76,6 +119,8 @@ Production target:
 - Searchable from Orbital.
 - Indexed by Librarian.
 - Available to Alfred as a canonical operating manual.
+- Retrievable by Swarm with trace IDs.
+- Updatable by Librarian from runbooks, incidents, promotion plans, and operator decisions.
 
 ### Research OS MCP
 
@@ -102,6 +147,24 @@ Production target:
 - Captures URL, selected text, operator notes, page title, and screenshot references.
 - Sends context cards to Swarm with trace IDs.
 - Supports actions: summarize, research, create Linear issue, save to Librarian, hand off to Alfred.
+- Supports voice-led demo capture so Lenox can say "show this" while Orbital Context captures page state, screenshots, selected text, and proof moments for the walkthrough scene graph.
+
+### Orbital Walkthrough Co-Producer
+
+Current state:
+
+- North Star and Linear parent are defined.
+- Implementation tracks are `THI-62` through `THI-69`.
+
+Production target:
+
+- Gemini Live voice session broker with server-side credentials.
+- Typed voice intent taxonomy.
+- A2UI-style scene, proof, action, approval, and publish cards.
+- ADK 2.0 demo director prototype in pre-prod.
+- Walkthrough capture and video production pipeline.
+- Swarm, Librarian, `#admin`, and Research OS trace integration.
+- First pilot package: `Introducing Orbital`.
 
 ### Manus-Hosted Assets
 
@@ -134,4 +197,3 @@ If this happens again:
 ```bash
 www CNAME ghs.googlehosted.com.
 ```
-
