@@ -2,12 +2,12 @@ import { GoogleGenAI } from "@google/genai";
 import { TaskParams, IPBible } from "../types";
 
 // Models
-const CHAT_MODEL = 'gemini-3-pro-preview';
-const FLASH_MODEL = 'gemini-3-flash-preview';
+const CHAT_MODEL = 'gemini-3.1-pro-preview';
+const FLASH_MODEL = 'gemini-flash-latest';
 const IMAGE_MODEL = 'gemini-3-pro-image-preview'; 
-const FLASH_IMAGE_MODEL = 'gemini-2.5-flash-image';
+const FLASH_IMAGE_MODEL = 'gemini-3.1-flash-image-preview';
 const VIDEO_MODEL = 'veo-3.1-fast-generate-preview';
-const MAPS_MODEL = 'gemini-2.5-flash';
+const MAPS_MODEL = 'gemini-flash-latest';
 
 // Helper to get client with fresh key
 const getAiClient = () => new GoogleGenAI({ apiKey: process.env.API_KEY || '' });

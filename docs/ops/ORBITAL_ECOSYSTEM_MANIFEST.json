@@ -62,8 +62,8 @@
   },
   "voiceOperatingLayer": {
     "targetModelAlias": "GEMINI_LIVE_MODEL",
-    "currentOperatingModel": "user_confirmed_gemini_3_1_live_preview",
-    "publicDocsFallback": "gemini-2.5-flash-native-audio-preview-12-2025",
+    "currentOperatingModel": "gemini-3.1-flash-live-preview",
+    "publicDocsFallback": "runtime_probe_required_before_fallback",
     "modelPolicy": "preserve_current_gemini_3_1_live_preview_path_use_runtime_alias_capability_probe_and_update_alias_when_ga",
     "gaMigrationPolicy": "update_GEMINI_LIVE_MODEL_to_GA_model_name_without_code_change_when_preview_exits",
     "credentialPolicy": "server_side_session_broker_only",

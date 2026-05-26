@@ -32,7 +32,7 @@ export const AIChatPanel: React.FC = () => {
     const fullPrompt = `Context from current page:\n${pageContext}\n\nIP Bible Context:\n${bibleContext}\n\nUser Question: ${userMsg}`;
     
     // Default params for chat
-    const params: TaskParams = { model: 'gemini-3-pro-preview' };
+    const params: TaskParams = { model: 'gemini-3.1-pro-preview' };
 
     const response = await GeminiService.chat(fullPrompt, params);
     

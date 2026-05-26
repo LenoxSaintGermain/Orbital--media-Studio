@@ -2,6 +2,8 @@ import { create } from 'zustand';
 import { Project, ToolType, WorkspaceMode, Asset, CanvasLayer, Task, TaskType, TaskParams, IPBible } from '../types';
 import { GeminiService } from '../services/gemini';
 
+type RightPanelType = 'chat' | 'image-gen' | 'bible';
+
 interface AppState {
   project: Project;
   ui: {
@@ -11,6 +13,8 @@ interface AppState {
     zoom: number;
     activeTaskId: string | null;
     selectedLayerId: string | null;
+    activePanel: RightPanelType;
+    isGenerating: boolean;
   };
   tasks: Task[];
   assets: Asset[];
@@ -22,6 +26,8 @@ interface AppState {
   setZoom: (zoom: number) => void;
   setActiveTaskId: (id: string | null) => void;
   setSelectedLayerId: (id: string | null) => void;
+  setPanel: (panel: RightPanelType) => void;
+  setGenerating: (isGenerating: boolean) => void;
 
   // Project Actions
   updateProject: (updates: Partial<Project>) => void;
@@ -69,6 +75,8 @@ export const useAppStore = create<AppState>((set, get) => ({
     zoom: 100,
     activeTaskId: null,
     selectedLayerId: null,
+    activePanel: 'chat',
+    isGenerating: false,
   },
   tasks: [],
   assets: [],
@@ -79,6 +87,8 @@ export const useAppStore = create<AppState>((set, get) => ({
   setZoom: (zoom) => set((state) => ({ ui: { ...state.ui, zoom } })),
   setActiveTaskId: (id) => set((state) => ({ ui: { ...state.ui, activeTaskId: id } })),
   setSelectedLayerId: (id) => set((state) => ({ ui: { ...state.ui, selectedLayerId: id } })),
+  setPanel: (panel) => set((state) => ({ ui: { ...state.ui, activePanel: panel } })),
+  setGenerating: (isGenerating) => set((state) => ({ ui: { ...state.ui, isGenerating } })),
 
   addAsset: (asset) => set((state) => ({ assets: [asset, ...state.assets] })),
 
@@ -211,7 +221,7 @@ export const useAppStore = create<AppState>((set, get) => ({
       const state = get();
       const taskId = `studio_${Date.now()}`;
       // Add a loading task
-      set(state => ({ tasks: [{ id: taskId, type: 'text', status: 'running', prompt: `Generating ${type}...`, params: { model: 'gemini-3-flash-preview' }, createdAt: Date.now() }, ...state.tasks] }));
+      set(state => ({ tasks: [{ id: taskId, type: 'text', status: 'running', prompt: `Generating ${type}...`, params: { model: 'gemini-flash-latest' }, createdAt: Date.now() }, ...state.tasks] }));
 
       const result = await GeminiService.generateBibleAsset(type, prompt, state.project.bible);
       

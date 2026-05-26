@@ -20,7 +20,7 @@ export const BottomDock: React.FC = () => {
     };
     
     // Switch to simpler model if text
-    if (activeType === 'text') params.model = 'gemini-3-pro-preview';
+    if (activeType === 'text') params.model = 'gemini-3.1-pro-preview';
 
     createTask(activeType, prompt, params);
     setPrompt('');

@@ -192,8 +192,8 @@ Gemini Live:
 
 Gemini video/context analysis:
 
-- `orbital-context` currently uses `gemini-3-pro-preview`.
-- Move the model string behind `ORBITAL_CONTEXT_MODEL`.
+- `orbital-context` currently uses `ORBITAL_CONTEXT_MODEL=gemini-3.1-pro-preview`.
+- Keep the model string behind `ORBITAL_CONTEXT_MODEL`.
 - Add capability probing for video input and structured JSON output.
 
 ADK:
